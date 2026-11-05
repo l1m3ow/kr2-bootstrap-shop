@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Учебная форма записи: выбор программы, специалиста, даты и времени с проверкой данных и расчётом стоимости."
+    >
+    <meta name="theme-color" content="#4c6049">
+    <title>Запись на сеанс — Тихо</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="visually-hidden-focusable skip-link" href="#main">Перейти к содержимому</a>
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+        <div class="container">
+          <a
+            class="navbar-brand d-flex align-items-center gap-2"
+            href="index.html"
+            aria-label="Тихо — главная"
+          >
+            <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-lg-auto gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="catalog.html">Услуги</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">О процедуре</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacts.html">Контакты</a>
+              </li>
+            </ul>
+            <a class="btn btn-primary mt-3 mt-lg-0" href="order.html" aria-current="page">
+              Записаться <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-intro pb-4">
+        <div class="container">
+          <nav aria-label="Хлебные крошки">
+            <ol class="breadcrumb small mb-4">
+              <li class="breadcrumb-item">
+                <a href="index.html">Главная</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Запись на сеанс</li>
+            </ol>
+          </nav>
+          <p class="eyebrow">В удобное время</p>
+          <h1 class="editorial-title display-3">Запланируйте<br><em>свою паузу.</em></h1>
+          <p class="text-body-secondary mt-3">Выберите программу и оставьте пожелания к посещению.</p>
+        </div>
+      </section>
+      <section class="pb-5">
+        <div class="container">
+          <div class="row g-4 g-lg-5">
+            <div class="col-12 col-lg-8">
+              <form class="card booking-form border-0 p-4 p-md-5" id="bookingForm" novalidate>
+                <div class="alert alert-light border small mb-4" role="note">
+                  Учебный режим: данные остаются в этой вкладке. Отправка, проверка свободного времени и
+                  бронирование не выполняются.
+                </div>
+                <h2 class="h4 mb-4">Ваш сеанс</h2>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bookingService">Услуга *</label>
+                    <select class="form-select" id="bookingService" name="service" required>
+                      <option value="">Выберите услугу</option>
+                      <option value="relax">Расслабляющий массаж · 60 мин</option>
+                      <option value="back">Спина и плечи · 45 мин</option>
+                      <option value="classic">Классический массаж · 60 мин</option>
+                      <option value="aroma">Арома-ритуал · 75 мин</option>
+                      <option value="feet">Стопы и голени · 30 мин</option>
+                      <option value="slow">Медленный ритуал · 90 мин</option>
+                    </select>
+                    <div class="invalid-feedback">Выберите услугу.</div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bookingSpecialist">Специалист</label>
+                    <select class="form-select" id="bookingSpecialist" name="specialist">
+                      <option value="">Любой специалист</option>
+                      <option value="anna">Анна · демо-профиль</option>
+                      <option value="daria">Дарья · демо-профиль</option>
+                      <option value="mikhail">Михаил · демо-профиль</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bookingDate">Желаемая дата *</label>
+                    <input
+                      class="form-control"
+                      id="bookingDate"
+                      name="date"
+                      type="date"
+                      required
+                      aria-describedby="dateHint"
+                    >
+                    <div class="invalid-feedback">Выберите сегодняшнюю или будущую дату.</div>
+                    <div class="form-text" id="dateHint">Это пожелание к дате, а не свободный слот.</div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bookingTime">Желаемое время *</label>
+                    <select class="form-select" id="bookingTime" name="time" required>
+                      <option value="">Выберите время</option>
+                      <option value="10:00">10:00</option>
+                      <option value="11:00">11:00</option>
+                      <option value="12:00">12:00</option>
+                      <option value="13:00">13:00</option>
+                      <option value="14:00">14:00</option>
+                      <option value="15:00">15:00</option>
+                      <option value="16:00">16:00</option>
+                      <option value="17:00">17:00</option>
+                      <option value="18:00">18:00</option>
+                      <option value="19:00">19:00</option>
+                      <option value="20:00">20:00</option>
+                    </select>
+                    <div class="invalid-feedback">Выберите желаемое время.</div>
+                  </div>
+                </div>
+                <h2 class="h4 mt-5 mb-4">Как к вам обращаться</h2>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bookingName">Имя *</label>
+                    <input
+                      class="form-control"
+                      id="bookingName"
+                      name="name"
+                      autocomplete="given-name"
+                      minlength="2"
+                      maxlength="60"
+                      required
+                    >
+                    <div class="invalid-feedback">Введите имя от двух символов.</div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="bookingEmail">E-mail *</label>
+                    <input
+                      class="form-control"
+                      id="bookingEmail"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      maxlength="120"
+                      required
+                    >
+                    <div class="invalid-feedback">Введите корректный e-mail.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="bookingPhone">Телефон *</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text" id="bookingPhonePrefix">+7</span>
+                      <input
+                        class="form-control"
+                        id="bookingPhone"
+                        name="phone"
+                        type="tel"
+                        inputmode="tel"
+                        autocomplete="tel-national"
+                        pattern="[0-9 ()-]{10,20}"
+                        placeholder="900 123-45-67"
+                        required
+                        aria-describedby="bookingPhonePrefix bookingPhoneHint"
+                      >
+                      <div class="invalid-feedback">Введите 10 цифр номера после +7.</div>
+                    </div>
+                    <div class="form-text" id="bookingPhoneHint">Пробелы, скобки и дефисы допустимы.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="bookingComment">Пожелания</label>
+                    <textarea
+                      class="form-control"
+                      id="bookingComment"
+                      name="comment"
+                      rows="3"
+                      maxlength="500"
+                      placeholder="Например, предпочитаю спокойную музыку"
+                    ></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        id="bookingAgree"
+                        name="agreement"
+                        type="checkbox"
+                        required
+                      >
+                      <label class="form-check-label small" for="bookingAgree">
+                        Согласен с проверкой введённых данных в учебной форме *
+                      </label>
+                      <div class="invalid-feedback">Подтвердите согласие.</div>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex flex-wrap gap-3 mt-4">
+                    <button class="btn btn-primary flex-grow-1" type="submit">Проверить демо-заявку ↗</button>
+                    <button class="btn btn-outline-primary" type="reset">Очистить</button>
+                  </div>
+                </div>
+                <div class="alert alert-success mt-4 mb-0" role="status" id="bookingSuccess" hidden></div>
+              </form>
+            </div>
+            <aside class="col-12 col-lg-4">
+              <div class="booking-summary p-4">
+                <p class="eyebrow">Ваша программа</p>
+                <h2 class="editorial-title h2" id="summaryName">Выберите услугу</h2>
+                <dl class="summary-list mt-4 mb-4">
+                  <div>
+                    <dt>Продолжительность</dt>
+                    <dd id="summaryDuration">—</dd>
+                  </div>
+                  <div>
+                    <dt>Специалист</dt>
+                    <dd id="summarySpecialist">Любой</dd>
+                  </div>
+                  <div>
+                    <dt>Дата и время</dt>
+                    <dd id="summaryDate">Не выбраны</dd>
+                  </div>
+                </dl>
+                <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                  <span>Стоимость</span><strong class="price" id="summaryPrice">—</strong>
+                </div>
+                <p class="small text-body-secondary mt-4 mb-0">
+                  Цены демонстрационные. Оплата на сайте не принимается.
+                </p>
+              </div>
+              <p class="small text-body-secondary mt-3 px-2">
+                После проверки формы появится её итог. Никакие данные не сохраняются после закрытия
+                вкладки.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer pt-5 pb-4">
+      <div class="container">
+        <div class="row g-4 pb-4">
+          <div class="col-12 col-lg-5">
+            <a
+              class="footer-brand d-inline-flex gap-2 align-items-center text-decoration-none"
+              href="index.html"
+            >
+              <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
+            </a>
+            <p class="mt-3 mb-0 footer-note">
+              Место для спокойной паузы.<br>Учебный проект массажной студии.
+            </p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 class="h6 mb-3">Навигация</h2>
+            <ul class="list-unstyled footer-links">
+              <li>
+                <a href="catalog.html">Услуги и цены</a>
+              </li>
+              <li>
+                <a href="order.html">Запись на сеанс</a>
+              </li>
+              <li>
+                <a href="contacts.html">Контакты</a>
+              </li>
+              <li>
+                <a href="index.html#faq">Частые вопросы</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-4">
+            <h2 class="h6 mb-3">Учебная студия</h2>
+            <p class="footer-note">
+              Ежедневно · 10:00–21:00
+              <br>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </p>
+            <span class="badge rounded-pill footer-badge">Демонстрационный сайт</span>
+          </div>
+        </div>
+        <div class="border-top pt-3 d-flex flex-wrap gap-2 justify-content-between small footer-note">
+          <span>© 2026 «Тихо». Учебная реализация.</span><span>Контакты, цены и специалисты — демо. Заявки не отправляются.</span>
+        </div>
+      </div>
+    </footer>
+    <a
+      class="back-to-top btn btn-primary rounded-circle"
+      href="#top"
+      aria-label="Вернуться наверх"
+      title="Наверх"
+    >
+      <span aria-hidden="true">↑</span>
+    </a>
+    <div
+      class="modal fade"
+      id="quickBookingModal"
+      tabindex="-1"
+      aria-labelledby="quickModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <div>
+              <p class="eyebrow mb-2">Первый шаг</p>
+              <h2 class="modal-title fs-3" id="quickModalTitle">Быстрая заявка</h2>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body p-4">
+            <p class="text-body-secondary small">
+              Учебная форма. Данные проверяются только в браузере и не отправляются.
+            </p>
+            <form id="quickForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label" for="quickService">Услуга</label>
+                <select class="form-select" id="quickService" name="service" required>
+                  <option value="">Выберите услугу</option>
+                  <option value="relax">Расслабляющий массаж · 60 мин</option>
+                  <option value="back">Спина и плечи · 45 мин</option>
+                  <option value="classic">Классический массаж · 60 мин</option>
+                  <option value="aroma">Арома-ритуал · 75 мин</option>
+                  <option value="feet">Стопы и голени · 30 мин</option>
+                  <option value="slow">Медленный ритуал · 90 мин</option>
+                </select>
+                <div class="invalid-feedback">Выберите услугу.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="quickName">Ваше имя</label>
+                <input
+                  class="form-control"
+                  id="quickName"
+                  name="name"
+                  autocomplete="given-name"
+                  minlength="2"
+                  maxlength="60"
+                  required
+                >
+                <div class="invalid-feedback">Введите имя от двух символов.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="quickPhone">Телефон</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="quickPhonePrefix">+7</span>
+                  <input
+                    class="form-control"
+                    id="quickPhone"
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel-national"
+                    pattern="[0-9 ()-]{10,20}"
+                    placeholder="900 123-45-67"
+                    aria-describedby="quickPhonePrefix quickPhoneHint"
+                    required
+                  >
+                  <div class="invalid-feedback">Введите 10 цифр номера после +7.</div>
+                </div>
+                <div class="form-text" id="quickPhoneHint">Можно вводить пробелы, скобки и дефисы.</div>
+              </div>
+              <div class="form-check mb-4">
+                <input
+                  class="form-check-input"
+                  id="quickAgree"
+                  name="agreement"
+                  type="checkbox"
+                  required
+                >
+                <label class="form-check-label small" for="quickAgree">
+                  Согласен с проверкой данных в учебной форме
+                </label>
+                <div class="invalid-feedback">Подтвердите согласие.</div>
+              </div>
+              <button class="btn btn-primary w-100" type="submit">
+                Проверить заявку <span aria-hidden="true">↗</span>
+              </button>
+              <a class="d-block text-center mt-3 small" id="fullBookingLink" href="order.html">
+                Выбрать дату и специалиста
+              </a>
+              <div class="alert alert-success mt-3 mb-0" id="quickSuccess" role="status" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

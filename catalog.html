@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Каталог массажной студии Тихо: шесть программ, поиск, фильтрация и сортировка по цене и продолжительности."
+    >
+    <meta name="theme-color" content="#4c6049">
+    <title>Услуги и цены — Тихо</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="visually-hidden-focusable skip-link" href="#main">Перейти к содержимому</a>
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+        <div class="container">
+          <a
+            class="navbar-brand d-flex align-items-center gap-2"
+            href="index.html"
+            aria-label="Тихо — главная"
+          >
+            <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-lg-auto gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="catalog.html" aria-current="page">Услуги</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">О процедуре</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacts.html">Контакты</a>
+              </li>
+            </ul>
+            <a class="btn btn-primary mt-3 mt-lg-0" href="order.html">
+              Записаться <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-intro">
+        <div class="container">
+          <nav aria-label="Хлебные крошки">
+            <ol class="breadcrumb small mb-4">
+              <li class="breadcrumb-item">
+                <a href="index.html">Главная</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Услуги и цены</li>
+            </ol>
+          </nav>
+          <p class="eyebrow">Найдите свой формат</p>
+          <div class="row g-4 align-items-end">
+            <div class="col-12 col-lg-7">
+              <h1 class="editorial-title display-3">Пауза бывает<br><em>разной.</em></h1>
+            </div>
+            <div class="col-12 col-lg-5">
+              <p class="text-body-secondary mb-2">
+                От короткого сеанса до неспешного ритуала.<br>Выберите длительность, которая подходит вам.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pb-5">
+        <div class="container">
+          <div class="catalog-toolbar mb-5">
+            <div class="row g-3 align-items-end">
+              <div class="col-12 col-lg-5">
+                <label for="serviceSearch" class="form-label small">Найти услугу</label>
+                <div class="input-group">
+                  <span class="input-group-text" aria-hidden="true">⌕</span>
+                  <input
+                    type="search"
+                    class="form-control"
+                    id="serviceSearch"
+                    placeholder="Например, спина"
+                    autocomplete="off"
+                  >
+                </div>
+              </div>
+              <div class="col-12 col-md-7 col-lg-4">
+                <label for="categoryFilter" class="form-label small">Настроение</label>
+                <select class="form-select" id="categoryFilter">
+                  <option value="all">Все форматы</option>
+                  <option value="relax">Для отдыха</option>
+                  <option value="office">После рабочего дня</option>
+                  <option value="active">В своём ритме</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-5 col-lg-3">
+                <label for="sortServices" class="form-label small">Сортировка</label>
+                <select class="form-select" id="sortServices">
+                  <option value="default">По умолчанию</option>
+                  <option value="price">Сначала дешевле</option>
+                  <option value="duration">Сначала короче</option>
+                </select>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center gap-3 mt-3">
+              <p class="small text-body-secondary mb-0" id="serviceCount" role="status">Найдено услуг: 6</p>
+              <button class="btn btn-link btn-sm p-0" id="resetFilters" type="button">
+                Сбросить фильтры
+              </button>
+            </div>
+          </div>
+          <h2 class="visually-hidden">Каталог услуг</h2>
+          <div class="row g-4" id="serviceGrid">
+            <div
+              class="col-12 col-md-6 col-lg-4 service-item"
+              data-category="relax"
+              data-service-id="relax"
+            >
+              <article class="card service-card h-100">
+                <a
+                  class="service-image-link"
+                  href="product.html?service=relax"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="card-img-top service-image"
+                    src="images/relax.svg"
+                    alt=""
+                    width="240"
+                    height="200"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <span class="badge rounded-pill badge-soft">Первое знакомство</span><span class="small text-body-secondary">60 мин</span>
+                  </div>
+                  <h3 class="card-title h4">Расслабляющий массаж</h3>
+                  <p class="card-text text-body-secondary small flex-grow-1">
+                    Мягкий темп и спокойная атмосфера. Час, который можно посвятить только себе.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                    <span class="price">3 500 ₽</span>
+                    <a class="service-more" href="product.html?service=relax">
+                      Подробнее <span aria-hidden="true">↗</span><span class="visually-hidden">: Расслабляющий массаж</span>
+                    </a>
+                  </div>
+                  <button
+                    class="btn btn-outline-primary mt-4 w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quickBookingModal"
+                    data-service="relax"
+                    type="button"
+                  >
+                    Быстрая заявка
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 service-item"
+              data-category="office"
+              data-service-id="back"
+            >
+              <article class="card service-card h-100">
+                <a
+                  class="service-image-link"
+                  href="product.html?service=back"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="card-img-top service-image"
+                    src="images/back.svg"
+                    alt=""
+                    width="240"
+                    height="200"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <span class="badge rounded-pill badge-soft">Удобный формат</span><span class="small text-body-secondary">45 мин</span>
+                  </div>
+                  <h3 class="card-title h4">Спина и плечи</h3>
+                  <p class="card-text text-body-secondary small flex-grow-1">
+                    Внимание зоне спины, плеч и шеи. Компактный сеанс между повседневными делами.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                    <span class="price">2 800 ₽</span>
+                    <a class="service-more" href="product.html?service=back">
+                      Подробнее <span aria-hidden="true">↗</span><span class="visually-hidden">: Спина и плечи</span>
+                    </a>
+                  </div>
+                  <button
+                    class="btn btn-outline-primary mt-4 w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quickBookingModal"
+                    data-service="back"
+                    type="button"
+                  >
+                    Быстрая заявка
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 service-item"
+              data-category="active"
+              data-service-id="classic"
+            >
+              <article class="card service-card h-100">
+                <a
+                  class="service-image-link"
+                  href="product.html?service=classic"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="card-img-top service-image"
+                    src="images/classic.svg"
+                    alt=""
+                    width="240"
+                    height="200"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <span class="badge rounded-pill badge-soft">Основная программа</span><span class="small text-body-secondary">60 мин</span>
+                  </div>
+                  <h3 class="card-title h4">Классический массаж</h3>
+                  <p class="card-text text-body-secondary small flex-grow-1">
+                    Сбалансированный общий сеанс. Темп и интенсивность подбираются в разговоре со
+                    специалистом.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                    <span class="price">3 800 ₽</span>
+                    <a class="service-more" href="product.html?service=classic">
+                      Подробнее <span aria-hidden="true">↗</span><span class="visually-hidden">: Классический массаж</span>
+                    </a>
+                  </div>
+                  <button
+                    class="btn btn-outline-primary mt-4 w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quickBookingModal"
+                    data-service="classic"
+                    type="button"
+                  >
+                    Быстрая заявка
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 service-item"
+              data-category="relax"
+              data-service-id="aroma"
+            >
+              <article class="card service-card h-100">
+                <a
+                  class="service-image-link"
+                  href="product.html?service=aroma"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="card-img-top service-image"
+                    src="images/aroma.svg"
+                    alt=""
+                    width="240"
+                    height="200"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <span class="badge rounded-pill badge-soft">Больше времени</span><span class="small text-body-secondary">75 мин</span>
+                  </div>
+                  <h3 class="card-title h4">Арома-ритуал</h3>
+                  <p class="card-text text-body-secondary small flex-grow-1">
+                    Неспешный сеанс с маслом и дополнительным временем для отдыха до и после процедуры.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                    <span class="price">4 400 ₽</span>
+                    <a class="service-more" href="product.html?service=aroma">
+                      Подробнее <span aria-hidden="true">↗</span><span class="visually-hidden">: Арома-ритуал</span>
+                    </a>
+                  </div>
+                  <button
+                    class="btn btn-outline-primary mt-4 w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quickBookingModal"
+                    data-service="aroma"
+                    type="button"
+                  >
+                    Быстрая заявка
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 service-item"
+              data-category="active"
+              data-service-id="feet"
+            >
+              <article class="card service-card h-100">
+                <a
+                  class="service-image-link"
+                  href="product.html?service=feet"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="card-img-top service-image"
+                    src="images/feet.svg"
+                    alt=""
+                    width="240"
+                    height="200"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <span class="badge rounded-pill badge-soft">Короткий сеанс</span><span class="small text-body-secondary">30 мин</span>
+                  </div>
+                  <h3 class="card-title h4">Стопы и голени</h3>
+                  <p class="card-text text-body-secondary small flex-grow-1">
+                    Локальный формат с акцентом на стопы и голени. Подойдёт, когда свободного времени
+                    немного.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                    <span class="price">2 200 ₽</span>
+                    <a class="service-more" href="product.html?service=feet">
+                      Подробнее <span aria-hidden="true">↗</span><span class="visually-hidden">: Стопы и голени</span>
+                    </a>
+                  </div>
+                  <button
+                    class="btn btn-outline-primary mt-4 w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quickBookingModal"
+                    data-service="feet"
+                    type="button"
+                  >
+                    Быстрая заявка
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 service-item"
+              data-category="relax"
+              data-service-id="slow"
+            >
+              <article class="card service-card h-100">
+                <a
+                  class="service-image-link"
+                  href="product.html?service=slow"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="card-img-top service-image"
+                    src="images/slow.svg"
+                    alt=""
+                    width="240"
+                    height="200"
+                    loading="lazy"
+                  >
+                </a>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <span class="badge rounded-pill badge-soft">Особенный вечер</span><span class="small text-body-secondary">90 мин</span>
+                  </div>
+                  <h3 class="card-title h4">Медленный ритуал</h3>
+                  <p class="card-text text-body-secondary small flex-grow-1">
+                    Продолжительная программа без спешки: спокойное знакомство, общий сеанс и время на
+                    чай.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between gap-2 mt-2">
+                    <span class="price">5 200 ₽</span>
+                    <a class="service-more" href="product.html?service=slow">
+                      Подробнее <span aria-hidden="true">↗</span><span class="visually-hidden">: Медленный ритуал</span>
+                    </a>
+                  </div>
+                  <button
+                    class="btn btn-outline-primary mt-4 w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#quickBookingModal"
+                    data-service="slow"
+                    type="button"
+                  >
+                    Быстрая заявка
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="alert alert-light border mt-4" id="emptyResults" role="status" hidden>
+            По вашему запросу ничего не найдено. Попробуйте другое название или сбросьте фильтры.
+          </div>
+          <div class="alert alert-info d-flex gap-3 mt-5 align-items-start" role="note">
+            <span aria-hidden="true">ⓘ</span>
+            <p class="mb-0 small">
+              Цены и программы демонстрационные. Кнопка заявки проверяет заполнение формы, но не
+              связывается со студией.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer pt-5 pb-4">
+      <div class="container">
+        <div class="row g-4 pb-4">
+          <div class="col-12 col-lg-5">
+            <a
+              class="footer-brand d-inline-flex gap-2 align-items-center text-decoration-none"
+              href="index.html"
+            >
+              <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
+            </a>
+            <p class="mt-3 mb-0 footer-note">
+              Место для спокойной паузы.<br>Учебный проект массажной студии.
+            </p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 class="h6 mb-3">Навигация</h2>
+            <ul class="list-unstyled footer-links">
+              <li>
+                <a href="catalog.html">Услуги и цены</a>
+              </li>
+              <li>
+                <a href="order.html">Запись на сеанс</a>
+              </li>
+              <li>
+                <a href="contacts.html">Контакты</a>
+              </li>
+              <li>
+                <a href="index.html#faq">Частые вопросы</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-4">
+            <h2 class="h6 mb-3">Учебная студия</h2>
+            <p class="footer-note">
+              Ежедневно · 10:00–21:00
+              <br>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </p>
+            <span class="badge rounded-pill footer-badge">Демонстрационный сайт</span>
+          </div>
+        </div>
+        <div class="border-top pt-3 d-flex flex-wrap gap-2 justify-content-between small footer-note">
+          <span>© 2026 «Тихо». Учебная реализация.</span><span>Контакты, цены и специалисты — демо. Заявки не отправляются.</span>
+        </div>
+      </div>
+    </footer>
+    <a
+      class="back-to-top btn btn-primary rounded-circle"
+      href="#top"
+      aria-label="Вернуться наверх"
+      title="Наверх"
+    >
+      <span aria-hidden="true">↑</span>
+    </a>
+    <div
+      class="modal fade"
+      id="quickBookingModal"
+      tabindex="-1"
+      aria-labelledby="quickModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <div>
+              <p class="eyebrow mb-2">Первый шаг</p>
+              <h2 class="modal-title fs-3" id="quickModalTitle">Быстрая заявка</h2>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body p-4">
+            <p class="text-body-secondary small">
+              Учебная форма. Данные проверяются только в браузере и не отправляются.
+            </p>
+            <form id="quickForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label" for="quickService">Услуга</label>
+                <select class="form-select" id="quickService" name="service" required>
+                  <option value="">Выберите услугу</option>
+                  <option value="relax">Расслабляющий массаж · 60 мин</option>
+                  <option value="back">Спина и плечи · 45 мин</option>
+                  <option value="classic">Классический массаж · 60 мин</option>
+                  <option value="aroma">Арома-ритуал · 75 мин</option>
+                  <option value="feet">Стопы и голени · 30 мин</option>
+                  <option value="slow">Медленный ритуал · 90 мин</option>
+                </select>
+                <div class="invalid-feedback">Выберите услугу.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="quickName">Ваше имя</label>
+                <input
+                  class="form-control"
+                  id="quickName"
+                  name="name"
+                  autocomplete="given-name"
+                  minlength="2"
+                  maxlength="60"
+                  required
+                >
+                <div class="invalid-feedback">Введите имя от двух символов.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="quickPhone">Телефон</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="quickPhonePrefix">+7</span>
+                  <input
+                    class="form-control"
+                    id="quickPhone"
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel-national"
+                    pattern="[0-9 ()-]{10,20}"
+                    placeholder="900 123-45-67"
+                    aria-describedby="quickPhonePrefix quickPhoneHint"
+                    required
+                  >
+                  <div class="invalid-feedback">Введите 10 цифр номера после +7.</div>
+                </div>
+                <div class="form-text" id="quickPhoneHint">Можно вводить пробелы, скобки и дефисы.</div>
+              </div>
+              <div class="form-check mb-4">
+                <input
+                  class="form-check-input"
+                  id="quickAgree"
+                  name="agreement"
+                  type="checkbox"
+                  required
+                >
+                <label class="form-check-label small" for="quickAgree">
+                  Согласен с проверкой данных в учебной форме
+                </label>
+                <div class="invalid-feedback">Подтвердите согласие.</div>
+              </div>
+              <button class="btn btn-primary w-100" type="submit">
+                Проверить заявку <span aria-hidden="true">↗</span>
+              </button>
+              <a class="d-block text-center mt-3 small" id="fullBookingLink" href="order.html">
+                Выбрать дату и специалиста
+              </a>
+              <div class="alert alert-success mt-3 mb-0" id="quickSuccess" role="status" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

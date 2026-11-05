@@ -1,0 +1,146 @@
+/* Палитра и фирменное оформление. Сетка и поведение компонентов — Bootstrap. */
+:root {
+  --bs-body-bg: #fbfaf6;
+  --bs-body-color: #293128;
+  --bs-secondary-color: #666e60;
+  --bs-border-color: #dedfd5;
+  --bs-link-color: #4c6049;
+  --bs-link-color-rgb: 76, 96, 73;
+  --bs-link-hover-color: #33472f;
+  --bs-link-hover-color-rgb: 51, 71, 47;
+  --bs-primary: #4c6049;
+  --bs-primary-rgb: 76, 96, 73;
+  --bs-border-radius: .8rem;
+  --bs-border-radius-lg: 1.25rem;
+  --studio-sage: #4c6049;
+  --studio-dark: #293b2a;
+  --studio-soft: #edf0e7;
+  --studio-gold: #b09265;
+}
+html { scroll-behavior: smooth; }
+body { font-family: Arial, Helvetica, sans-serif; line-height: 1.65; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid #8d733f; outline-offset: 4px; }
+section[id], main[id] { scroll-margin-top: 110px; }
+.skip-link { position: fixed; left: 1rem; top: 1rem; z-index: 1100; padding: .7rem 1rem; background: white; }
+.site-header { background: rgba(251, 250, 246, .97); border-bottom: 1px solid var(--bs-border-color); }
+.navbar { --bs-navbar-active-color: #33472f; --bs-navbar-hover-color: #4c6049; }
+.navbar-brand, .footer-brand { color: var(--studio-dark); font: 2.1rem/.85 Georgia, serif; letter-spacing: -.04em; }
+.brand-mark { display: grid; place-items: center; width: 41px; height: 41px; border: 1px solid #b8c0ab; border-radius: 50%; font: 1.8rem Georgia, serif; }
+.brand-subtitle { display: block; margin-top: .6rem; font: .56rem Arial, sans-serif; letter-spacing: .19em; text-transform: uppercase; }
+.navbar .nav-link { font-size: .9rem; font-weight: 500; }
+.navbar .nav-link.active { text-decoration: underline; text-underline-offset: .5rem; }
+.btn { --bs-btn-border-radius: 100rem; padding: .7rem 1.3rem; font-size: .88rem; font-weight: 600; }
+.btn-lg { padding: .95rem 1.65rem; font-size: .95rem; }
+.btn-primary {
+  --bs-btn-bg: #4c6049; --bs-btn-border-color: #4c6049;
+  --bs-btn-hover-bg: #33472f; --bs-btn-hover-border-color: #33472f;
+  --bs-btn-active-bg: #293b2a; --bs-btn-active-border-color: #293b2a;
+  --bs-btn-disabled-bg: #4c6049; --bs-btn-disabled-border-color: #4c6049;
+  --bs-btn-focus-shadow-rgb: 76, 96, 73;
+}
+.btn-outline-primary {
+  --bs-btn-color: #4c6049; --bs-btn-border-color: #a9b59e;
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #4c6049; --bs-btn-hover-border-color: #4c6049;
+  --bs-btn-active-color: #fff; --bs-btn-active-bg: #33472f; --bs-btn-active-border-color: #33472f;
+  --bs-btn-disabled-color: #4c6049; --bs-btn-disabled-border-color: #a9b59e;
+  --bs-btn-focus-shadow-rgb: 76, 96, 73;
+}
+.btn-link { --bs-btn-color: #4c6049; --bs-btn-hover-color: #33472f; }
+.editorial-title { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; line-height: 1.08; letter-spacing: -.045em; }
+.editorial-title em { color: var(--studio-sage); font-weight: 400; }
+.eyebrow { color: #596b51; font-size: .67rem; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+.tiny-leaf { display: inline-block; margin-right: .5rem; font-size: 1rem; color: var(--studio-gold); }
+.hero-section { padding: 4.5rem 0 5rem; }
+.hero-copy { font-size: 1rem; }
+.hero-meta { font-size: .76rem; color: #666e60; }
+.hero-meta span + span::before { content: '✳'; color: var(--studio-gold); margin-right: 1.5rem; }
+.hero-image-wrap { position: relative; padding-left: 1.5rem; }
+.studio-picture { display: block; width: 100%; height: 520px; object-fit: cover; object-position: 54% center; border-radius: 240px 240px 1.5rem 1.5rem; }
+.image-caption { position: absolute; left: 0; bottom: 2rem; display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.5rem; border-radius: 1rem; background: #fbfaf6; box-shadow: 0 8px 28px #293b2a12; font-size: .8rem; }
+.caption-symbol { font-size: 2rem; color: var(--studio-gold); }
+.philosophy-strip { border-top: 1px solid var(--bs-border-color); border-bottom: 1px solid var(--bs-border-color); background: #f2f2eb; color: #5d6656; }
+.section-space { padding: 5.5rem 0; }
+.service-card { background: #fffefa; border: 1px solid #e8e9df; border-radius: 1.25rem; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px #293b2a0c; }
+.service-image-link { display: block; }
+.service-image { width: 100%; height: 180px; object-fit: cover; }
+.service-card .card-title { font-family: Georgia, serif; font-size: 1.5rem; letter-spacing: -.025em; }
+.badge-soft { color: #4c6049; background: #edf0e7; font-size: .62rem; font-weight: 500; }
+.price { font: 600 1.2rem Arial, sans-serif; white-space: nowrap; }
+.service-more { color: #4c6049; font-size: .78rem; font-weight: 600; text-decoration: none; }
+.service-more:hover { text-decoration: underline; text-underline-offset: .3rem; }
+.about-section, .faq-section { background: var(--studio-soft); }
+.value-row { display: flex; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid #d7decd; }
+.value-row > span { color: #7b885d; font-size: .8rem; padding-top: .2rem; }
+.person-avatar { display: grid; place-items: center; width: 100%; aspect-ratio: 1.3; border-radius: 5rem 5rem 1rem 1rem; background: #ebe7dc; color: #7b806a; font: 2.5rem Georgia, serif; letter-spacing: -.08em; }
+.team-person:nth-child(even) .person-avatar { background: #e6ebde; }
+.accordion { --bs-accordion-bg: transparent; --bs-accordion-border-color: #d4ddc8; --bs-accordion-active-bg: transparent; --bs-accordion-active-color: #293b2a; --bs-accordion-btn-focus-box-shadow: 0 0 0 .2rem #4c60492b; }
+.accordion-button { padding: 1.5rem .1rem; font-size: .95rem; }
+.accordion-body { padding: 0 .1rem 1.5rem; font-size: .9rem; }
+.booking-banner { background: #f0eade; border-radius: 1.5rem; }
+.site-footer { background: #e8ecdf; }
+.footer-brand { color: #33472f; }
+.footer-note, .footer-links { color: #606b56; font-size: .82rem; }
+.footer-links li + li { margin-top: .5rem; }
+.footer-links a, .footer-note a { color: #42533c; text-decoration: none; }
+.footer-links a:hover, .footer-note a:hover { text-decoration: underline; }
+.footer-badge { background: #d8dfca; color: #4d5e42; font-weight: 400; }
+.back-to-top { position: fixed; z-index: 1030; right: max(18px, env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom)); display: grid; place-items: center; width: 44px; height: 44px; padding: 0; font-size: 1.3rem; box-shadow: 0 4px 16px #293b2a1a; }
+.page-intro { padding: 3rem 0 3.5rem; }
+.breadcrumb { --bs-breadcrumb-divider-color: #9da690; --bs-breadcrumb-item-active-color: #68735e; }
+.breadcrumb a { text-decoration: none; }
+.catalog-toolbar { padding: 1.4rem; border: 1px solid var(--bs-border-color); border-radius: 1rem; background: #f5f5ee; }
+.form-label { font-size: .82rem; font-weight: 500; }
+.form-control, .form-select, .input-group-text { padding: .72rem .9rem; font-size: .88rem; }
+.form-control, .form-select { background-color: #fffefa; border-color: #d7ddcf; }
+.input-group-text { color: #5a6850; background: #edf0e7; border-color: #d7ddcf; }
+.form-control:focus, .form-select:focus { border-color: #8e9f7e; box-shadow: 0 0 0 .2rem #4c604923; background-color: #fffefa; }
+.form-check-input:checked { background-color: #4c6049; border-color: #4c6049; }
+.form-check-input:focus { border-color: #8e9f7e; box-shadow: 0 0 0 .2rem #4c604923; }
+.alert-info { --bs-alert-color: #42533c; --bs-alert-bg: #edf0e7; --bs-alert-border-color: #d7ddcf; }
+.alert-light { --bs-alert-bg: #f6f5ee; --bs-alert-color: #626c59; }
+.alert-success { --bs-alert-color: #2f4c32; --bs-alert-bg: #e4eddc; --bs-alert-border-color: #c7d7bd; }
+.modal-content { border: 1px solid #dde2d4; border-radius: 1.4rem; background: #fbfaf6; }
+.modal-header { padding: 1.5rem 1.5rem .5rem; }
+.modal-title { font-family: Georgia, serif; }
+.detail-image-wrap { position: relative; }
+.detail-picture { display: block; width: 100%; height: 450px; object-fit: cover; object-position: 50% center; border-radius: 10rem 10rem 1.25rem 1.25rem; }
+.detail-badge { position: absolute; left: 1.5rem; bottom: 1.5rem; background: #fffaf0; color: #4c6049; padding: .7rem 1rem; }
+.detail-price { color: #3e5037; font-size: 1.7rem; }
+.nav-tabs { --bs-nav-tabs-border-color: #d7ddcf; --bs-nav-tabs-link-active-bg: #fbfaf6; --bs-nav-tabs-link-active-color: #33472f; --bs-nav-link-color: #69755f; --bs-nav-link-hover-color: #33472f; }
+.nav-tabs .nav-link { padding: .9rem 1.3rem; }
+.session-steps { padding-left: 1.4rem; color: #59664f; }
+.session-steps li { padding: .7rem 0; }
+.table { --bs-table-bg: transparent; --bs-table-color: #293128; --bs-table-border-color: #d7ddcf; }
+.table th, .table td { padding: 1rem; }
+.booking-form { background: #fffefa; }
+.booking-summary { position: sticky; top: 112px; border-radius: 1rem; background: #edf0e7; }
+.summary-list > div { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; font-size: .82rem; }
+.summary-list dt { font-weight: 400; color: #626c59; }
+.summary-list dd { margin-bottom: 0; text-align: right; }
+.contact-block { padding: 1.7rem; background: #f1f2e9; border-radius: 1rem; }
+.contact-block a { overflow-wrap: anywhere; }
+.hours-list > div { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; justify-content: space-between; padding: .8rem 0; border-bottom: 1px solid #d7ddcf; font-size: .85rem; }
+.hours-list dt { font-weight: 400; }
+.hours-list dd { margin-bottom: 0; white-space: nowrap; }
+@media (min-width: 1200px) { .hero-section .display-2 { font-size: 5.2rem; } }
+@media (max-width: 991.98px) {
+  .hero-section { padding: 2.8rem 0 3.5rem; }
+  .hero-image-wrap { padding-left: 0; max-width: 620px; margin-inline: auto; }
+  .studio-picture { height: 460px; }
+  .image-caption { left: 1rem; }
+  .booking-summary { position: static; }
+}
+@media (max-width: 575.98px) {
+  .section-space { padding: 3.5rem 0; }
+  .studio-picture { height: 390px; }
+  .editorial-title.display-2, .editorial-title.display-3 { font-size: 3.2rem; }
+  .hero-meta { gap: 1rem !important; }
+  .hero-meta span + span::before { margin-right: 1rem; }
+  .detail-picture { height: 330px; }
+  .page-intro { padding-top: 2rem; }
+  .navbar-brand { font-size: 1.8rem; }
+  .service-card .card-body { padding: 1.25rem !important; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .service-card { transition: none; } }
