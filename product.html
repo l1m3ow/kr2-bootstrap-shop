@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Описание программы массажной студии Тихо: продолжительность, стоимость, формат и демо-запись."
+      content="Описание программы массажной студии Тихо: продолжительность, стоимость, формат и выбор времени."
     >
     <meta name="theme-color" content="#4c6049">
     <title>Описание услуги — Тихо</title>
@@ -82,14 +82,13 @@
               <div class="col-12 col-lg-6">
                 <div class="detail-image-wrap">
                   <img
-                    srcset="images/studio-960.webp 960w, images/studio.webp 1672w"
-                    sizes="(min-width: 992px) 50vw, 100vw"
                     class="detail-picture"
-                    src="images/studio.webp"
-                    alt="Светлая комната с массажным столом, льняным текстилем и растением"
-                    width="1672"
-                    height="941"
+                    src="images/relax.webp"
+                    alt="Светлая комната для расслабляющего сеанса массажа"
+                    width="960"
+                    height="640"
                     fetchpriority="high"
+                    id="detailImage"
                   >
                   <span class="badge rounded-pill detail-badge" id="detailCategory">Для отдыха</span>
                 </div>
@@ -122,7 +121,7 @@
                   </button>
                 </div>
                 <p class="small text-body-secondary mt-3">
-                  Желаемое время указывается в демо-форме. Реального бронирования нет.
+                  Укажите желаемое время в форме. Отправка заявки пока не подключена.
                 </p>
               </div>
             </div>
@@ -196,7 +195,7 @@
               <h2 class="h4">Параметры программы</h2>
               <div class="table-responsive">
                 <table class="table align-middle">
-                  <caption>Справочная информация учебной программы</caption>
+                  <caption>Подробности программы</caption>
                   <tbody>
                     <tr>
                       <th scope="row">Продолжительность</th>
@@ -249,8 +248,8 @@
                     data-bs-parent="#detailFaqAccordion"
                   >
                     <div class="accordion-body text-body-secondary">
-                      Посмотрите длительность, описание и формат в каталоге. В демо-заявке можно
-                      оставить пожелания. Для реальной студии выбор уточняется при личном общении со
+                      Посмотрите длительность, описание и формат в каталоге. В форме можно оставить
+                      пожелания. Для реальной студии выбор уточняется при личном общении со
                       специалистом.
                     </div>
                   </div>
@@ -274,8 +273,8 @@
                     data-bs-parent="#detailFaqAccordion"
                   >
                     <div class="accordion-body text-body-secondary">
-                      Нет. Это учебная версия сайта: она проверяет заполнение и показывает итог заявки.
-                      Данные не передаются, свободное время не проверяется и запись не бронируется.
+                      Нет. Форма проверяет заполнение и показывает итог заявки. Данные не передаются,
+                      свободное время не проверяется и запись не бронируется.
                     </div>
                   </div>
                 </div>
@@ -298,8 +297,8 @@
                     data-bs-parent="#detailFaqAccordion"
                   >
                     <div class="accordion-body text-body-secondary">
-                      В учебной форме можно выбрать другую услугу, специалиста, желаемую дату и время.
-                      Стоимость в сводке обновится автоматически.
+                      В форме можно выбрать другую услугу, специалиста, желаемую дату и время. Стоимость
+                      в сводке обновится автоматически.
                     </div>
                   </div>
                 </div>
@@ -320,7 +319,7 @@
               <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
             </a>
             <p class="mt-3 mb-0 footer-note">
-              Место для спокойной паузы.<br>Учебный проект массажной студии.
+              Место для спокойной паузы.<br>Студия массажа и спокойного отдыха.
             </p>
           </div>
           <div class="col-6 col-lg-3">
@@ -341,17 +340,16 @@
             </ul>
           </div>
           <div class="col-6 col-lg-4">
-            <h2 class="h6 mb-3">Учебная студия</h2>
+            <h2 class="h6 mb-3">Студия «Тихо»</h2>
             <p class="footer-note">
               Ежедневно · 10:00–21:00
               <br>
-              <a href="mailto:hello@example.com">hello@example.com</a>
+              <a href="contacts.html">Контакты и карта</a>
             </p>
-            <span class="badge rounded-pill footer-badge">Демонстрационный сайт</span>
           </div>
         </div>
         <div class="border-top pt-3 d-flex flex-wrap gap-2 justify-content-between small footer-note">
-          <span>© 2026 «Тихо». Учебная реализация.</span><span>Контакты, цены и специалисты — демо. Заявки не отправляются.</span>
+          <span>© 2026 «Тихо». Студия массажа.</span><span>Место для спокойной паузы.</span>
         </div>
       </div>
     </footer>
@@ -381,7 +379,7 @@
           </div>
           <div class="modal-body p-4">
             <p class="text-body-secondary small">
-              Учебная форма. Данные проверяются только в браузере и не отправляются.
+              Форма проверяет заполнение полей. Отправка заявки пока не подключена.
             </p>
             <form id="quickForm" novalidate>
               <div class="mb-3">
@@ -439,7 +437,7 @@
                   required
                 >
                 <label class="form-check-label small" for="quickAgree">
-                  Согласен с проверкой данных в учебной форме
+                  Подтверждаю корректность введённых данных
                 </label>
                 <div class="invalid-feedback">Подтвердите согласие.</div>
               </div>
