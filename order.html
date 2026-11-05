@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Учебная форма записи: выбор программы, специалиста, даты и времени с проверкой данных и расчётом стоимости."
+      content="Выбор программы массажа, специалиста, даты и времени с проверкой данных и расчётом стоимости."
     >
     <meta name="theme-color" content="#4c6049">
     <title>Запись на сеанс — Тихо</title>
@@ -83,8 +83,8 @@
             <div class="col-12 col-lg-8">
               <form class="card booking-form border-0 p-4 p-md-5" id="bookingForm" novalidate>
                 <div class="alert alert-light border small mb-4" role="note">
-                  Учебный режим: данные остаются в этой вкладке. Отправка, проверка свободного времени и
-                  бронирование не выполняются.
+                  Отправка заявки пока не подключена. Данные остаются в этой вкладке, время не
+                  бронируется.
                 </div>
                 <h2 class="h4 mb-4">Ваш сеанс</h2>
                 <div class="row g-3">
@@ -105,9 +105,9 @@
                     <label class="form-label" for="bookingSpecialist">Специалист</label>
                     <select class="form-select" id="bookingSpecialist" name="specialist">
                       <option value="">Любой специалист</option>
-                      <option value="anna">Анна · демо-профиль</option>
-                      <option value="daria">Дарья · демо-профиль</option>
-                      <option value="mikhail">Михаил · демо-профиль</option>
+                      <option value="anna">Анна</option>
+                      <option value="daria">Дарья</option>
+                      <option value="mikhail">Михаил</option>
                     </select>
                   </div>
                   <div class="col-12 col-md-6">
@@ -211,13 +211,13 @@
                         required
                       >
                       <label class="form-check-label small" for="bookingAgree">
-                        Согласен с проверкой введённых данных в учебной форме *
+                        Подтверждаю корректность введённых данных *
                       </label>
                       <div class="invalid-feedback">Подтвердите согласие.</div>
                     </div>
                   </div>
                   <div class="col-12 d-flex flex-wrap gap-3 mt-4">
-                    <button class="btn btn-primary flex-grow-1" type="submit">Проверить демо-заявку ↗</button>
+                    <button class="btn btn-primary flex-grow-1" type="submit">Проверить заявку ↗</button>
                     <button class="btn btn-outline-primary" type="reset">Очистить</button>
                   </div>
                 </div>
@@ -246,7 +246,7 @@
                   <span>Стоимость</span><strong class="price" id="summaryPrice">—</strong>
                 </div>
                 <p class="small text-body-secondary mt-4 mb-0">
-                  Цены демонстрационные. Оплата на сайте не принимается.
+                  Стоимость выбранной программы указана в сводке. Оплата на сайте не принимается.
                 </p>
               </div>
               <p class="small text-body-secondary mt-3 px-2">
@@ -269,7 +269,7 @@
               <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
             </a>
             <p class="mt-3 mb-0 footer-note">
-              Место для спокойной паузы.<br>Учебный проект массажной студии.
+              Место для спокойной паузы.<br>Студия массажа и спокойного отдыха.
             </p>
           </div>
           <div class="col-6 col-lg-3">
@@ -290,17 +290,16 @@
             </ul>
           </div>
           <div class="col-6 col-lg-4">
-            <h2 class="h6 mb-3">Учебная студия</h2>
+            <h2 class="h6 mb-3">Студия «Тихо»</h2>
             <p class="footer-note">
               Ежедневно · 10:00–21:00
               <br>
-              <a href="mailto:hello@example.com">hello@example.com</a>
+              <a href="contacts.html">Контакты и карта</a>
             </p>
-            <span class="badge rounded-pill footer-badge">Демонстрационный сайт</span>
           </div>
         </div>
         <div class="border-top pt-3 d-flex flex-wrap gap-2 justify-content-between small footer-note">
-          <span>© 2026 «Тихо». Учебная реализация.</span><span>Контакты, цены и специалисты — демо. Заявки не отправляются.</span>
+          <span>© 2026 «Тихо». Студия массажа.</span><span>Место для спокойной паузы.</span>
         </div>
       </div>
     </footer>
@@ -330,7 +329,7 @@
           </div>
           <div class="modal-body p-4">
             <p class="text-body-secondary small">
-              Учебная форма. Данные проверяются только в браузере и не отправляются.
+              Форма проверяет заполнение полей. Отправка заявки пока не подключена.
             </p>
             <form id="quickForm" novalidate>
               <div class="mb-3">
@@ -388,7 +387,7 @@
                   required
                 >
                 <label class="form-check-label small" for="quickAgree">
-                  Согласен с проверкой данных в учебной форме
+                  Подтверждаю корректность введённых данных
                 </label>
                 <div class="invalid-feedback">Подтвердите согласие.</div>
               </div>

@@ -66,7 +66,7 @@ if (detail) {
     document.title = 'Услуга не найдена — Тихо';
   } else {
     document.title = `${service.name} — Тихо`;
-    document.querySelector('meta[name="description"]').content = `${service.name}: ${service.duration} минут, ${priceText(service.price)}. Учебная программа студии Тихо.`;
+    document.querySelector('meta[name="description"]').content = `${service.name}: ${service.duration} минут, ${priceText(service.price)}. Программа студии Тихо.`;
     const fields = {
       detailName: service.name, detailLead: service.lead, detailDesc: service.desc,
       detailCategory: service.categoryName, detailTag: service.tag,
@@ -76,6 +76,9 @@ if (detail) {
       tableFormat: service.format
     };
     Object.entries(fields).forEach(([id, value]) => setText(id, value));
+    const detailImage = document.getElementById('detailImage');
+    detailImage.src = `images/${service.id}.webp`;
+    detailImage.alt = service.photoAlt;
     document.getElementById('detailOrder').href = `order.html?service=${encodeURIComponent(service.id)}`;
     document.getElementById('detailQuick').dataset.service = service.id;
   }
@@ -161,7 +164,7 @@ function attachDemoForm(form, success, onValid) {
 if (quickForm) {
   attachDemoForm(quickForm, quickSuccess, (data) => {
     const service = serviceById(data.get('service'));
-    return `${data.get('name').trim()}, поля заполнены корректно: ${service.name}, ${priceText(service.price)}. Это демо-заявка — данные не отправлены и запись не создана.`;
+    return `${data.get('name').trim()}, поля заполнены корректно: ${service.name}, ${priceText(service.price)}. Отправка заявки пока не подключена: данные не отправлены и время не забронировано.`;
   });
 }
 
@@ -191,6 +194,6 @@ if (bookingForm) {
   updateSummary();
   attachDemoForm(bookingForm, success, (data) => {
     const selected = serviceById(data.get('service'));
-    return `${data.get('name').trim()}, демо-заявка заполнена корректно: ${selected.name}, ${data.get('date').split('-').reverse().join('.')} в ${data.get('time')}, ${priceText(selected.price)}. Данные не отправлялись; время не забронировано.`;
+    return `${data.get('name').trim()}, форма заполнена корректно: ${selected.name}, ${data.get('date').split('-').reverse().join('.')} в ${data.get('time')}, ${priceText(selected.price)}. Данные не отправлялись; время не забронировано.`;
   });
 }
