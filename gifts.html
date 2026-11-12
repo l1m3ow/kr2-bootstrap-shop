@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Создайте персональную подарочную карту студии Тихо: оформление, сумма и тёплое пожелание. Сохранение в SVG и печать."
+    >
+    <meta name="theme-color" content="#4c6049">
+    <title>Подарочная карта — Тихо</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="visually-hidden-focusable skip-link" href="#main">Перейти к содержимому</a>
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+        <div class="container">
+          <a
+            class="navbar-brand d-flex align-items-center gap-2"
+            href="index.html"
+            aria-label="Тихо — главная"
+          >
+            <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-lg-auto gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="catalog.html">Услуги</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">О процедуре</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacts.html">Контакты</a>
+              </li>
+            </ul>
+            <a class="btn btn-primary mt-3 mt-lg-0" href="order.html">
+              Записаться <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-intro pb-4">
+        <div class="container">
+          <nav aria-label="Хлебные крошки">
+            <ol class="breadcrumb small">
+              <li class="breadcrumb-item">
+                <a href="index.html">Главная</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Подарочная карта</li>
+            </ol>
+          </nav>
+          <p class="eyebrow">С заботой о близких</p>
+          <h1 class="editorial-title display-3">Подарите<br><em>спокойную паузу.</em></h1>
+          <p class="text-body-secondary mt-3">
+            Добавьте имя, сумму и несколько тёплых слов. Скачайте оформление или распечатайте.
+          </p>
+        </div>
+      </section>
+      <section class="pb-5">
+        <div class="container">
+          <div class="row g-4 g-lg-5 align-items-start">
+            <div class="col-12 col-lg-5">
+              <form class="gift-form p-4" id="giftForm">
+                <h2 class="h4 mb-4">Ваш подарок</h2>
+                <div class="mb-3">
+                  <label class="form-label" for="giftRecipient">Для кого</label>
+                  <input
+                    id="giftRecipient"
+                    name="recipient"
+                    class="form-control"
+                    maxlength="40"
+                    placeholder="Например, для Анны"
+                    autocomplete="off"
+                  >
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="giftAmount">Сумма</label>
+                  <select id="giftAmount" name="amount" class="form-select">
+                    <option value="3000">3 000 ₽</option>
+                    <option value="5000" selected>5 000 ₽</option>
+                    <option value="7000">7 000 ₽</option>
+                    <option value="10000">10 000 ₽</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="giftMessage">Ваше пожелание</label>
+                  <textarea
+                    id="giftMessage"
+                    name="message"
+                    class="form-control"
+                    rows="3"
+                    maxlength="120"
+                    placeholder="Время, которое можно посвятить себе."
+                  ></textarea>
+                  <div class="form-text">До 120 символов. Текст остаётся в этой вкладке.</div>
+                </div>
+                <fieldset class="mb-4">
+                  <legend class="form-label">Оформление</legend>
+                  <div class="match-options">
+                    <label>
+                      <input type="radio" name="design" value="sage" checked>
+                      Шалфей
+                    </label>
+                    <label>
+                      <input type="radio" name="design" value="sand">
+                      Песок
+                    </label>
+                  </div>
+                </fieldset>
+                <div class="d-flex flex-wrap gap-2">
+                  <button id="downloadGift" class="btn btn-primary" type="button">Скачать SVG ↓</button>
+                  <button id="printGift" class="btn btn-outline-primary" type="button">Распечатать</button>
+                </div>
+                <p id="giftStatus" class="small mt-3 mb-0" role="status"></p>
+              </form>
+            </div>
+            <div class="col-12 col-lg-7">
+              <h2 class="visually-hidden">Предпросмотр подарочной карты</h2>
+              <div id="giftPreview" class="gift-preview" aria-label="Предпросмотр подарочной карты"></div>
+              <p class="small text-body-secondary mt-3">
+                Создаётся только оформление: покупка и оплата на сайте не подключены. Эта карта не
+                подтверждает оплату и не является действующим сертификатом.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer pt-5 pb-4">
+      <div class="container">
+        <div class="row g-4 pb-4">
+          <div class="col-12 col-lg-5">
+            <a
+              class="footer-brand d-inline-flex gap-2 align-items-center text-decoration-none"
+              href="index.html"
+            >
+              <span class="brand-mark" aria-hidden="true">т.</span><span>тихо<span class="brand-subtitle">студия массажа</span></span>
+            </a>
+            <p class="mt-3 mb-0 footer-note">
+              Место для спокойной паузы.<br>Студия массажа и спокойного отдыха.
+            </p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 class="h6 mb-3">Навигация</h2>
+            <ul class="list-unstyled footer-links">
+              <li>
+                <a href="index.html" class="">Главная</a>
+              </li>
+              <li>
+                <a href="catalog.html">Услуги</a>
+              </li>
+              <li>
+                <a href="product.html">О процедуре</a>
+              </li>
+              <li>
+                <a href="contacts.html">Контакты</a>
+              </li>
+              <li>
+                <a href="order.html">Записаться</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-4">
+            <h2 class="h6 mb-3">Студия «Тихо»</h2>
+            <p class="footer-note">
+              <span>Ежедневно · 10:00–21:00</span>
+              <br>
+              <a href="tel:+70001234567">+7 (000) 123-45-67</a>
+              <br>
+              <a href="mailto:hello@tiho.example">hello@tiho.example</a>
+            </p>
+          </div>
+        </div>
+        <div class="border-top pt-3 d-flex flex-wrap gap-2 justify-content-between small footer-note">
+          <span>© 2026 «Тихо». Студия массажа.</span><span>Место для спокойной паузы.</span>
+        </div>
+      </div>
+    </footer>
+    <a
+      class="back-to-top scroll-flower"
+      href="#top"
+      aria-label="Вернуться наверх"
+      title="Вернуться к началу"
+    >
+      <span class="scroll-flower-core"><svg viewbox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="scroll-percent" aria-hidden="true">0%</span></span><span class="scroll-flower-label" aria-hidden="true">К началу</span>
+    </a>
+    <div
+      class="modal fade"
+      id="quickBookingModal"
+      tabindex="-1"
+      aria-labelledby="quickModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <div>
+              <p class="eyebrow mb-2">Первый шаг</p>
+              <h2 class="modal-title fs-3" id="quickModalTitle">Быстрая заявка</h2>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body p-4">
+            <p class="text-body-secondary small">
+              Форма проверяет заполнение полей. Отправка заявки пока не подключена.
+            </p>
+            <form id="quickForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label" for="quickService">Услуга</label>
+                <select class="form-select" id="quickService" name="service" required>
+                  <option value="">Выберите услугу</option>
+                  <option value="relax">Расслабляющий массаж · 60 мин</option>
+                  <option value="back">Спина и плечи · 45 мин</option>
+                  <option value="classic">Классический массаж · 60 мин</option>
+                  <option value="aroma">Арома-ритуал · 75 мин</option>
+                  <option value="feet">Стопы и голени · 30 мин</option>
+                  <option value="slow">Медленный ритуал · 90 мин</option>
+                </select>
+                <div class="invalid-feedback">Выберите услугу.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="quickName">Ваше имя</label>
+                <input
+                  class="form-control"
+                  id="quickName"
+                  name="name"
+                  autocomplete="given-name"
+                  minlength="2"
+                  maxlength="60"
+                  required
+                >
+                <div class="invalid-feedback">Введите имя от двух символов.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="quickPhone">Телефон</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="quickPhonePrefix">+7</span>
+                  <input
+                    class="form-control"
+                    id="quickPhone"
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel-national"
+                    pattern="[0-9 ()-]{10,20}"
+                    placeholder="900 123-45-67"
+                    aria-describedby="quickPhonePrefix quickPhoneHint"
+                    required
+                  >
+                  <div class="invalid-feedback">Введите 10 цифр номера после +7.</div>
+                </div>
+                <div class="form-text" id="quickPhoneHint">Можно вводить пробелы, скобки и дефисы.</div>
+              </div>
+              <div class="form-check mb-4">
+                <input
+                  class="form-check-input"
+                  id="quickAgree"
+                  name="agreement"
+                  type="checkbox"
+                  required
+                >
+                <label class="form-check-label small" for="quickAgree">
+                  Подтверждаю корректность введённых данных
+                </label>
+                <div class="invalid-feedback">Подтвердите согласие.</div>
+              </div>
+              <button class="btn btn-primary w-100" type="submit">
+                Проверить заявку <span aria-hidden="true">↗</span>
+              </button>
+              <a class="d-block text-center mt-3 small" id="fullBookingLink" href="order.html">
+                Выбрать дату и специалиста
+              </a>
+              <div class="alert alert-success mt-3 mb-0" id="quickSuccess" role="status" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feature-announcement" id="featureAnnouncement" role="status" aria-live="polite"></div>
+    <div class="compare-dock" id="compareDock" hidden>
+      <span><span id="compareCount">0</span> / 3 программы</span>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#comparePanel"
+        aria-controls="comparePanel"
+      >
+        Сравнить ↗
+      </button>
+    </div>
+    <div
+      class="offcanvas offcanvas-bottom compare-panel"
+      tabindex="-1"
+      id="comparePanel"
+      aria-labelledby="compareTitle"
+    >
+      <div class="offcanvas-header container">
+        <div>
+          <p class="eyebrow mb-1">Решение без спешки</p>
+          <h2 class="offcanvas-title h3" id="compareTitle">Сравните ваши программы</h2>
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Закрыть сравнение"
+        >
+        </button>
+      </div>
+      <div class="offcanvas-body container">
+        <p class="small text-body-secondary">
+          Добавьте до трёх программ. Здесь можно сравнить продолжительность, стоимость и формат.
+        </p>
+        <div id="compareContent"></div>
+        <button id="clearCompare" class="btn btn-link ps-0" type="button">Очистить сравнение</button>
+      </div>
+    </div>
+    <script src="js/features.js" defer></script>
+  </body>
+</html>
