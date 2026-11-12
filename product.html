@@ -119,6 +119,24 @@
                   >
                     Быстрая заявка
                   </button>
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-favorite="relax"
+                    data-detail-favorite="true"
+                    aria-pressed="false"
+                  >
+                    ♡ В избранное
+                  </button>
+                  <button
+                    class="btn btn-link"
+                    type="button"
+                    data-compare="relax"
+                    data-detail-compare="true"
+                    aria-pressed="false"
+                  >
+                    ＋ Сравнить
+                  </button>
                 </div>
                 <p class="small text-body-secondary mt-3">
                   Укажите желаемое время в форме. Отправка заявки пока не подключена.
@@ -326,25 +344,30 @@
             <h2 class="h6 mb-3">Навигация</h2>
             <ul class="list-unstyled footer-links">
               <li>
-                <a href="catalog.html">Услуги и цены</a>
+                <a href="index.html">Главная</a>
               </li>
               <li>
-                <a href="order.html">Запись на сеанс</a>
+                <a href="catalog.html">Услуги</a>
+              </li>
+              <li>
+                <a href="product.html" aria-current="page">О процедуре</a>
               </li>
               <li>
                 <a href="contacts.html">Контакты</a>
               </li>
               <li>
-                <a href="index.html#faq">Частые вопросы</a>
+                <a href="order.html">Записаться</a>
               </li>
             </ul>
           </div>
           <div class="col-6 col-lg-4">
             <h2 class="h6 mb-3">Студия «Тихо»</h2>
             <p class="footer-note">
-              Ежедневно · 10:00–21:00
+              <span>Ежедневно · 10:00–21:00</span>
               <br>
-              <a href="contacts.html">Контакты и карта</a>
+              <a href="tel:+70001234567">+7 (000) 123-45-67</a>
+              <br>
+              <a href="mailto:hello@tiho.example">hello@tiho.example</a>
             </p>
           </div>
         </div>
@@ -354,12 +377,12 @@
       </div>
     </footer>
     <a
-      class="back-to-top btn btn-primary rounded-circle"
+      class="back-to-top scroll-flower"
       href="#top"
       aria-label="Вернуться наверх"
-      title="Наверх"
+      title="Вернуться к началу"
     >
-      <span aria-hidden="true">↑</span>
+      <span class="scroll-flower-core"><svg viewbox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="scroll-percent" aria-hidden="true">0%</span></span><span class="scroll-flower-label" aria-hidden="true">К началу</span>
     </a>
     <div
       class="modal fade"
@@ -453,5 +476,46 @@
         </div>
       </div>
     </div>
+    <div class="feature-announcement" id="featureAnnouncement" role="status" aria-live="polite"></div>
+    <div class="compare-dock" id="compareDock" hidden>
+      <span><span id="compareCount">0</span> / 3 программы</span>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#comparePanel"
+        aria-controls="comparePanel"
+      >
+        Сравнить ↗
+      </button>
+    </div>
+    <div
+      class="offcanvas offcanvas-bottom compare-panel"
+      tabindex="-1"
+      id="comparePanel"
+      aria-labelledby="compareTitle"
+    >
+      <div class="offcanvas-header container">
+        <div>
+          <p class="eyebrow mb-1">Решение без спешки</p>
+          <h2 class="offcanvas-title h3" id="compareTitle">Сравните ваши программы</h2>
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Закрыть сравнение"
+        >
+        </button>
+      </div>
+      <div class="offcanvas-body container">
+        <p class="small text-body-secondary">
+          Добавьте до трёх программ. Здесь можно сравнить продолжительность, стоимость и формат.
+        </p>
+        <div id="compareContent"></div>
+        <button id="clearCompare" class="btn btn-link ps-0" type="button">Очистить сравнение</button>
+      </div>
+    </div>
+    <script src="js/features.js" defer></script>
   </body>
 </html>

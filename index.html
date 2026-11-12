@@ -115,6 +115,39 @@
           </div>
         </div>
       </div>
+      <section class="discovery-section" aria-label="Новые способы выбрать отдых">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-12 col-md-6">
+              <article class="discovery-card">
+                <span class="discovery-number" aria-hidden="true">01 / для себя</span>
+                <h2 class="editorial-title h2">Ваш ритм.<br><em>Ваша программа.</em></h2>
+                <p class="small text-body-secondary">
+                  Ответьте на три вопроса — предложим формат, который впишется в ваш день.
+                </p>
+                <button
+                  class="btn btn-outline-primary"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#matchModal"
+                >
+                  Подобрать программу ↗
+                </button>
+              </article>
+            </div>
+            <div class="col-12 col-md-6">
+              <article class="discovery-card gift-teaser">
+                <span class="discovery-number" aria-hidden="true">02 / для близкого</span>
+                <h2 class="editorial-title h2">Подарите<br><em>время для себя.</em></h2>
+                <p class="small text-body-secondary">
+                  Создайте персональную подарочную карту с тёплыми словами и сохраните её.
+                </p>
+                <a class="btn btn-outline-primary" href="gifts.html">Создать подарочную карту ↗</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="section-space" id="services">
         <div class="container">
           <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5">
@@ -171,6 +204,25 @@
                   >
                     Быстрая заявка
                   </button>
+                  <div class="service-tools mt-3">
+                    <button
+                      class="service-tool"
+                      type="button"
+                      data-favorite="relax"
+                      aria-pressed="false"
+                      aria-label="Добавить в избранное"
+                    >
+                      <span aria-hidden="true">♡</span> В избранное
+                    </button>
+                    <button
+                      class="service-tool"
+                      type="button"
+                      data-compare="relax"
+                      aria-pressed="false"
+                    >
+                      ＋ Сравнить
+                    </button>
+                  </div>
                 </div>
               </article>
             </div>
@@ -218,6 +270,20 @@
                   >
                     Быстрая заявка
                   </button>
+                  <div class="service-tools mt-3">
+                    <button
+                      class="service-tool"
+                      type="button"
+                      data-favorite="back"
+                      aria-pressed="false"
+                      aria-label="Добавить в избранное"
+                    >
+                      <span aria-hidden="true">♡</span> В избранное
+                    </button>
+                    <button class="service-tool" type="button" data-compare="back" aria-pressed="false">
+                      ＋ Сравнить
+                    </button>
+                  </div>
                 </div>
               </article>
             </div>
@@ -266,6 +332,25 @@
                   >
                     Быстрая заявка
                   </button>
+                  <div class="service-tools mt-3">
+                    <button
+                      class="service-tool"
+                      type="button"
+                      data-favorite="classic"
+                      aria-pressed="false"
+                      aria-label="Добавить в избранное"
+                    >
+                      <span aria-hidden="true">♡</span> В избранное
+                    </button>
+                    <button
+                      class="service-tool"
+                      type="button"
+                      data-compare="classic"
+                      aria-pressed="false"
+                    >
+                      ＋ Сравнить
+                    </button>
+                  </div>
                 </div>
               </article>
             </div>
@@ -505,25 +590,30 @@
             <h2 class="h6 mb-3">Навигация</h2>
             <ul class="list-unstyled footer-links">
               <li>
-                <a href="catalog.html">Услуги и цены</a>
+                <a href="index.html" aria-current="page">Главная</a>
               </li>
               <li>
-                <a href="order.html">Запись на сеанс</a>
+                <a href="catalog.html">Услуги</a>
+              </li>
+              <li>
+                <a href="product.html">О процедуре</a>
               </li>
               <li>
                 <a href="contacts.html">Контакты</a>
               </li>
               <li>
-                <a href="index.html#faq">Частые вопросы</a>
+                <a href="order.html">Записаться</a>
               </li>
             </ul>
           </div>
           <div class="col-6 col-lg-4">
             <h2 class="h6 mb-3">Студия «Тихо»</h2>
             <p class="footer-note">
-              Ежедневно · 10:00–21:00
+              <span>Ежедневно · 10:00–21:00</span>
               <br>
-              <a href="contacts.html">Контакты и карта</a>
+              <a href="tel:+70001234567">+7 (000) 123-45-67</a>
+              <br>
+              <a href="mailto:hello@tiho.example">hello@tiho.example</a>
             </p>
           </div>
         </div>
@@ -533,12 +623,12 @@
       </div>
     </footer>
     <a
-      class="back-to-top btn btn-primary rounded-circle"
+      class="back-to-top scroll-flower"
       href="#top"
       aria-label="Вернуться наверх"
-      title="Наверх"
+      title="Вернуться к началу"
     >
-      <span aria-hidden="true">↑</span>
+      <span class="scroll-flower-core"><svg viewbox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="scroll-percent" aria-hidden="true">0%</span></span><span class="scroll-flower-label" aria-hidden="true">К началу</span>
     </a>
     <div
       class="modal fade"
@@ -632,5 +722,126 @@
         </div>
       </div>
     </div>
+    <div class="feature-announcement" id="featureAnnouncement" role="status" aria-live="polite"></div>
+    <div class="compare-dock" id="compareDock" hidden>
+      <span><span id="compareCount">0</span> / 3 программы</span>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#comparePanel"
+        aria-controls="comparePanel"
+      >
+        Сравнить ↗
+      </button>
+    </div>
+    <div
+      class="offcanvas offcanvas-bottom compare-panel"
+      tabindex="-1"
+      id="comparePanel"
+      aria-labelledby="compareTitle"
+    >
+      <div class="offcanvas-header container">
+        <div>
+          <p class="eyebrow mb-1">Решение без спешки</p>
+          <h2 class="offcanvas-title h3" id="compareTitle">Сравните ваши программы</h2>
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Закрыть сравнение"
+        >
+        </button>
+      </div>
+      <div class="offcanvas-body container">
+        <p class="small text-body-secondary">
+          Добавьте до трёх программ. Здесь можно сравнить продолжительность, стоимость и формат.
+        </p>
+        <div id="compareContent"></div>
+        <button id="clearCompare" class="btn btn-link ps-0" type="button">Очистить сравнение</button>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="matchModal"
+      tabindex="-1"
+      aria-labelledby="matchTitle"
+      aria-describedby="matchNote"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow mb-2">Ваш ритм</p>
+              <h2 class="modal-title h3" id="matchTitle">Найдём подходящий формат</h2>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть подбор">
+            </button>
+          </div>
+          <div class="modal-body p-4">
+            <p class="small text-body-secondary" id="matchNote">
+              Три вопроса о предпочтениях. Это подбор формата отдыха, а не медицинская рекомендация.
+            </p>
+            <form id="matchForm">
+              <fieldset class="mb-4">
+                <legend class="h6">1. Чего хочется сегодня?</legend>
+                <div class="match-options">
+                  <label>
+                    <input type="radio" name="goal" value="rest" checked>
+                    Расслабиться
+                  </label>
+                  <label>
+                    <input type="radio" name="goal" value="office">
+                    Отдохнуть после работы
+                  </label>
+                  <label>
+                    <input type="radio" name="goal" value="feet">
+                    Подарить отдых ногам
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="mb-4">
+                <legend class="h6">2. Сколько у вас времени?</legend>
+                <div class="match-options">
+                  <label>
+                    <input type="radio" name="minutes" value="30">
+                    До 30 минут
+                  </label>
+                  <label>
+                    <input type="radio" name="minutes" value="60" checked>
+                    До часа
+                  </label>
+                  <label>
+                    <input type="radio" name="minutes" value="90">
+                    До полутора часов
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="mb-4">
+                <legend class="h6">3. Какая атмосфера ближе?</legend>
+                <div class="match-options">
+                  <label>
+                    <input type="radio" name="mood" value="simple" checked>
+                    Ничего лишнего
+                  </label>
+                  <label>
+                    <input type="radio" name="mood" value="aroma">
+                    Масла и ароматы
+                  </label>
+                  <label>
+                    <input type="radio" name="mood" value="slow">
+                    Длинный ритуал
+                  </label>
+                </div>
+              </fieldset>
+              <button class="btn btn-primary" type="submit">Показать мой вариант ↗</button>
+            </form>
+            <div id="matchResult" class="match-result mt-4" role="status" hidden></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/features.js" defer></script>
   </body>
 </html>

@@ -34,7 +34,8 @@ if (grid) {
     let visible = 0;
     sorted.forEach((item) => {
       const service = serviceById(item.dataset.serviceId);
-      const matches = (category.value === 'all' || service.category === category.value)
+      const matches = (!document.getElementById('favoritesOnly').checked || window.TIHO_PREFS?.hasFavorite(service.id))
+        && (category.value === 'all' || service.category === category.value)
         && `${service.name} ${service.desc}`.toLocaleLowerCase('ru-RU').includes(query);
       item.hidden = !matches;
       if (matches) visible += 1;
@@ -42,12 +43,17 @@ if (grid) {
     });
     setText('serviceCount', `Найдено услуг: ${visible}`);
     document.getElementById('emptyResults').hidden = visible !== 0;
+    document.getElementById('emptyResults').textContent = document.getElementById('favoritesOnly').checked
+      ? 'В избранном нет услуг по выбранным условиям. Добавьте услуги сердечком или сбросьте фильтры.'
+      : 'По вашему запросу ничего не найдено. Попробуйте другое название или сбросьте фильтры.';
   };
   search.addEventListener('input', applyFilters);
+  document.addEventListener('tiho:favorites-change', applyFilters);
   category.addEventListener('change', applyFilters);
   sort.addEventListener('change', applyFilters);
   document.getElementById('resetFilters').addEventListener('click', () => {
     search.value = '';
+    document.getElementById('favoritesOnly').checked = false;
     category.value = 'all';
     sort.value = 'default';
     applyFilters();
@@ -197,3 +203,4 @@ if (bookingForm) {
     return `${data.get('name').trim()}, форма заполнена корректно: ${selected.name}, ${data.get('date').split('-').reverse().join('.')} в ${data.get('time')}, ${priceText(selected.price)}. Данные не отправлялись; время не забронировано.`;
   });
 }
+
